@@ -34,13 +34,13 @@ class FirstFragment : Fragment() {
 
         val mainActivity = activity as MainActivity
         val usersList = mainActivity.usersList
-        var successFlag : Boolean = false
+        var successFlag = false
 
         btnNext.setOnClickListener {
             Log.d("FirstFragment", "Credentials: ${editTextEmail.text}; ${editTextPass.text}")
             loop@ for(user in usersList){
                 Log.d("FirstFragment", "User in loop: ${user.email}; ${user.password}")
-                if (editTextEmail.text.toString().trim().equals(user.email) && editTextPass.text.toString().equals(user.password)){
+                if (editTextEmail.text.toString().trim() == user.email && editTextPass.text.toString() == user.password){
                     displayMessage("Logged in Successfully")
                     Log.d("FirstFragment", "Credentials match with DB")
                     findNavController().navigate(R.id.action_FirstFragment_to_SecondFragment)
